@@ -57,22 +57,19 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       pages: [
         PageViewModel(
           title: "Fractional shares",
-          body:
-              "Instead of having to buy an entire share, invest any amount you want.",
+          body: "Instead of having to buy an entire share, invest any amount you want.",
           image: _buildImage('img1'),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Learn as you go",
-          body:
-              "Download the Stockpile app and master the market with our mini-lesson.",
+          body: "Download the Stockpile app and master the market with our mini-lesson.",
           image: _buildImage('img2'),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Kids and teens",
-          body:
-              "Kids and teens can track their stocks 24/7 and place trades that you approve.",
+          body: "Kids and teens can track their stocks 24/7 and place trades that you approve.",
           image: _buildImage('img3'),
           decoration: pageDecoration,
         ),
@@ -97,12 +94,26 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         ),
         PageViewModel(
           title: "Title of last page",
-          bodyWidget: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text("Click on ", style: bodyStyle),
-              Icon(Icons.edit),
-              Text(" to edit a post", style: bodyStyle),
+          bodyWidget: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Text("Click on ", style: bodyStyle),
+                  Icon(Icons.edit),
+                  Text(" to edit a post", style: bodyStyle),
+                ],
+              ),
+              Text("test 1", style: bodyStyle),
+              Text("test 2", style: bodyStyle),
+              Text("test 3", style: bodyStyle),
+              Text("test 4", style: bodyStyle),
+              Text("test 5", style: bodyStyle),
+              Text("test 6", style: bodyStyle),
+              Text("test 7", style: bodyStyle),
+              Text("test 8", style: bodyStyle),
+              Text("test 9", style: bodyStyle),
+              Text("test 10", style: bodyStyle),
             ],
           ),
           image: _buildImage('img1'),

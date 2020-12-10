@@ -4,8 +4,9 @@ import 'package:introduction_screen/src/ui/intro_content.dart';
 
 class IntroPage extends StatelessWidget {
   final PageViewModel page;
+  final bool displayBottomPadding;
 
-  const IntroPage({Key key, @required this.page}) : super(key: key);
+  const IntroPage({Key key, @required this.page, this.displayBottomPadding = true}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class IntroPage extends StatelessWidget {
             Expanded(
               flex: page.decoration.bodyFlex,
               child: Padding(
-                padding: const EdgeInsets.only(bottom: 70.0),
+                padding: EdgeInsets.only(bottom: displayBottomPadding ? 70.0 : 0),
                 child: SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
                   child: IntroContent(page: page),
