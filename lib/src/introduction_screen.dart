@@ -236,7 +236,7 @@ class IntroductionScreenState extends State<IntroductionScreen> {
             child: PageView(
               controller: _pageController,
               physics: widget.freeze ? const NeverScrollableScrollPhysics() : const BouncingScrollPhysics(),
-              children: widget.pages.map((p) => IntroPage(page: p, displayBottomPadding: !widget.hideProgressIndicatorOnLastPage || !isLastPage)).toList(),
+              children: widget.pages.map((p) => widget.hideProgressIndicatorOnLastPage && isLastPage ? p.bodyWidget : IntroPage(page: p, displayBottomPadding: !widget.hideProgressIndicatorOnLastPage || !isLastPage)).toList(),
               onPageChanged: widget.onChange,
             ),
           ),
