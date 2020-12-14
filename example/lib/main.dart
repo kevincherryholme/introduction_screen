@@ -53,7 +53,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     );
 
     return IntroductionScreen(
-      hideProgressIndicatorOnLastPage: true,
+      lastPageJustUsedBodyWidget: true,
       key: introKey,
       pages: [
         PageViewModel(

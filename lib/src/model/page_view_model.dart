@@ -34,10 +34,6 @@ class PageViewModel {
     this.footer,
     this.decoration = const PageDecoration(),
   })  : assert(
-          title != null || titleWidget != null,
-          "You must provide either title (String) or titleWidget (Widget).",
-        ),
-        assert(
           (title == null) != (titleWidget == null),
           "You can not provide both title and titleWidget.",
         ),

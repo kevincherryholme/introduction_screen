@@ -104,7 +104,7 @@ class IntroductionScreen extends StatefulWidget {
   /// Color of done button
   final Color doneColor;
 
-  final bool hideProgressIndicatorOnLastPage;
+  final bool lastPageJustUsedBodyWidget;
 
   const IntroductionScreen({
     Key key,
@@ -132,7 +132,7 @@ class IntroductionScreen extends StatefulWidget {
     this.skipColor,
     this.nextColor,
     this.doneColor,
-    this.hideProgressIndicatorOnLastPage = false,
+    this.lastPageJustUsedBodyWidget = false,
   })  : assert(pages != null),
         assert(
           pages.length > 0,
@@ -236,11 +236,15 @@ class IntroductionScreenState extends State<IntroductionScreen> {
             child: PageView(
               controller: _pageController,
               physics: widget.freeze ? const NeverScrollableScrollPhysics() : const BouncingScrollPhysics(),
-              children: widget.pages.map((p) => widget.hideProgressIndicatorOnLastPage && isLastPage ? p.bodyWidget : IntroPage(page: p, displayBottomPadding: !widget.hideProgressIndicatorOnLastPage || !isLastPage)).toList(),
+              children: widget.pages
+                  .asMap()
+                  .map((i, p) => MapEntry(i, widget.lastPageJustUsedBodyWidget && (i == widget.pages.length - 1) ? p.bodyWidget : IntroPage(page: p)))
+                  .values
+                  .toList(),
               onPageChanged: widget.onChange,
             ),
           ),
-          ((widget.hideProgressIndicatorOnLastPage && !isLastPage) || !widget.hideProgressIndicatorOnLastPage)
+          ((widget.lastPageJustUsedBodyWidget && !isLastPage) || !widget.lastPageJustUsedBodyWidget)
               ? Positioned(
                   bottom: 16.0,
                   left: 16.0,
