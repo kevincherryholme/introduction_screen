@@ -175,7 +175,9 @@ class IntroductionScreenState extends State<IntroductionScreen> {
   }
 
   Future<void> skipToEnd() async {
-    setState(() => _isSkipPressed = true);
+    if (mounted) {
+      setState(() => _isSkipPressed = true);
+    }
     await animateScroll(widget.pages.length - 1);
     if (mounted) {
       setState(() => _isSkipPressed = false);
@@ -183,7 +185,9 @@ class IntroductionScreenState extends State<IntroductionScreen> {
   }
 
   Future<void> animateScroll(int page) async {
-    setState(() => _isScrolling = true);
+    if (mounted) {
+      setState(() => _isScrolling = true);
+    }
     await _pageController.animateToPage(
       page,
       duration: Duration(milliseconds: widget.animationDuration),
@@ -198,7 +202,9 @@ class IntroductionScreenState extends State<IntroductionScreen> {
     final metrics = notification.metrics;
     if (metrics is PageMetrics) {
       if (mounted) {
-        WidgetsBinding.instance.addPostFrameCallback((_) => setState(() => _currentPage = metrics.page));
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted) setState(() => _currentPage = metrics.page);
+        });
       }
     }
     return false;
