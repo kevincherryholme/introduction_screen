@@ -197,7 +197,9 @@ class IntroductionScreenState extends State<IntroductionScreen> {
   bool _onScroll(ScrollNotification notification) {
     final metrics = notification.metrics;
     if (metrics is PageMetrics) {
-      setState(() => _currentPage = metrics.page);
+      if (mounted) {
+        WidgetsBinding.instance.addPostFrameCallback((_) => setState(() => _currentPage = metrics.page));
+      }
     }
     return false;
   }

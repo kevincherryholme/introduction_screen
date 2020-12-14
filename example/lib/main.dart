@@ -53,6 +53,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     );
 
     return IntroductionScreen(
+      hideProgressIndicatorOnLastPage: true,
       key: introKey,
       pages: [
         PageViewModel(
@@ -117,6 +118,12 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             ],
           ),
           image: _buildImage('img1'),
+          decoration: pageDecoration,
+        ),
+        PageViewModel(
+          title: "Kids and teens",
+          body: "Kids and teens can track their stocks 24/7 and place trades that you approve.",
+          image: _buildImage('img3'),
           decoration: pageDecoration,
         ),
       ],
