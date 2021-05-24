@@ -344,7 +344,7 @@ class IntroductionScreenState extends State<IntroductionScreen> {
               right: 0,
               child: widget.globalHeader!,
             ),
-          ((widget.lastPageJustUsedBodyWidget && !isLastPage) || !widget.lastPageJustUsedBodyWidget)
+          if ((widget.lastPageJustUsedBodyWidget && !isLastPage) || !widget.lastPageJustUsedBodyWidget)
               ? Positioned(
             bottom: 0,
             left: 0,
@@ -389,7 +389,7 @@ class IntroductionScreenState extends State<IntroductionScreen> {
                 if (widget.globalFooter != null) widget.globalFooter!
               ],
             ),
-          ) : Container(height: 0, width: 0),
+          ),
         ],
       ),
     );
