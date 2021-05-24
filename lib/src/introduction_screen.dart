@@ -327,14 +327,12 @@ class IntroductionScreenState extends State<IntroductionScreen> {
                     ? const NeverScrollableScrollPhysics()
                     : widget.scrollPhysics,
                 children: widget.pages != null
-                    ? widget.pages!.
-                        asMap().map((i, p) => MapEntry(i, widget.lastPageJustUsedBodyWidget && (i == widget.pages.length - 1) ? p.bodyWidget : IntroPage(
+                    ? widget.pages!.asMap().map((i, p) => MapEntry(i, widget.lastPageJustUsedBodyWidget && (i == widget.pages!.length - 1) ? p.bodyWidget! : IntroPage(
                               page: p,
                               scrollController: widget.scrollController,
                               isTopSafeArea: widget.isTopSafeArea,
                               isBottomSafeArea: widget.isBottomSafeArea,
-                            ))).values
-                        .toList()
+                            ))).values.toList()
                     : widget.rawPages!,
               ),
             ),
