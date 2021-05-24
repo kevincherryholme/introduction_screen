@@ -40,6 +40,7 @@ class PageViewModel {
     this.footer,
     this.reverse =  false,
     this.decoration = const PageDecoration(),
+    this.useScrollView = true,
   })  :
         assert(
           body != null || bodyWidget != null,
