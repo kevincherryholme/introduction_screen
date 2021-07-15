@@ -345,7 +345,7 @@ class IntroductionScreenState extends State<IntroductionScreen> {
               child: widget.globalHeader!,
             ),
           if ((widget.lastPageJustUsedBodyWidget && !isLastPage) || !widget.lastPageJustUsedBodyWidget)
-              ? Positioned(
+            Positioned(
             bottom: 0,
             left: 0,
             right: 0,
