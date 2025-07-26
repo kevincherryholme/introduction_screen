@@ -5,8 +5,7 @@ class IntroButton extends StatelessWidget {
   final Widget? child;
   final Color? color;
 
-  const IntroButton({Key? key, this.onPressed, this.child, this.color})
-      : super(key: key);
+  const IntroButton({Key? key, this.onPressed, this.child, this.color}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,7 @@ class IntroButton extends StatelessWidget {
       onPressed: onPressed,
       child: child ?? SizedBox(),
       style: TextButton.styleFrom(
-        primary: color,
+        foregroundColor: color,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
         ),
